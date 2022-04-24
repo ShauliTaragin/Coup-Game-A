@@ -14,9 +14,9 @@ namespace coup{
         //Player(Game game, string player_name);
 
         //Now the 3 actions each player can execute in each turn
-        void income(){
-            coins++;
-        }
+        Player& income();
+        Player& foreign_aid();
+        Player& coup(Player);
     };
 
 
