@@ -2,18 +2,18 @@
 
 CXX=clang++-9 
 CXXVERSION=c++2a
-CXXFLAGS=-std=$(CXXVERSION) -Werror -Wsign-conversion
+CXXFLAGS=-std=$(CXXVERSION) -Werror -Wsign-conversion -g
 TIDY_FLAGS=-extra-arg=-std=$(CXXVERSION) -checks=bugprone-*,clang-analyzer-*,cppcoreguidelines-*,performance-*,portability-*,readability-*,-cppcoreguidelines-pro-bounds-pointer-arithmetic,-cppcoreguidelines-owning-memory --warnings-as-errors=-*
 VALGRIND_FLAGS=-v --leak-check=full --show-leak-kinds=all  --error-exitcode=99
 
 SOURCES=Game.cpp Player.cpp Duke.cpp Assassin.cpp Ambassador.cpp Captain.cpp Contessa.cpp
 OBJECTS=$(subst .cpp,.o,$(SOURCES))
 
-
+all:run
 run: demo
 	./demo
 
-demo1: Demo.o $(OBJECTS)
+demo: Demo.o $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o demo
 
 

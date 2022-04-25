@@ -5,7 +5,7 @@
  * @since: 2022-02
  */
 
-#include "Player.hpp"
+#include "sources/Player.hpp"
 #include "Duke.hpp"
 #include "Assassin.hpp"
 #include "Ambassador.hpp"
