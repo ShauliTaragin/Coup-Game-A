@@ -1,7 +1,7 @@
 //
 // Created by shaul on 24/04/2022.
 //
-
+#pragma once
 #include <iostream>
 #include "Game.hpp"
 using namespace std;

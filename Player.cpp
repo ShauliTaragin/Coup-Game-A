@@ -7,7 +7,7 @@ using namespace std;
 namespace coup{
         Player::Player(Game & current_game, string player_name) : game(current_game),
         name(player_name) , Coins(0){
-//                Player::game=game;
+            this->game.Players.push_back(player_name);//adding player to game
         }
 
         //Now the 3 actions each player can execute in each turn
@@ -28,7 +28,8 @@ namespace coup{
             if(this->Coins < 7){
                 throw invalid_argument("Not enough coins to do this action");
             }
-
+            //remove player
+            return *this;
         }
 
 

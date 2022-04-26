@@ -6,7 +6,7 @@
 #include "Player.hpp"
 using namespace std;
 namespace coup{
-    class Assassin:Player{
+    class Assassin:public Player{
     public:
         Assassin(Game & game, string player_name): Player(game,player_name){}
         Player& coup(Player);

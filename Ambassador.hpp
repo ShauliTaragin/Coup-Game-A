@@ -7,7 +7,7 @@
 #include "Player.hpp"
 using namespace std;
 namespace coup{
-    class Ambassador:Player{
+    class Ambassador:public Player{
     public:
         Ambassador(Game & game, string player_name): Player(game,player_name){}
         Player& block(Player);

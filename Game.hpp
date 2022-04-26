@@ -1,14 +1,16 @@
 //
 // Created by shaul on 24/04/2022.
 //
+#pragma once
 #include <vector>
 #include <iostream>
+#include <queue>
 using namespace std;
 namespace coup{
     class Game{
-    private:
-        vector<string> Players;
     public:
+        vector<string> Players;
+        queue<string> Turns;
         Game();
         string turn();
         vector<string> players();
