@@ -8,7 +8,7 @@ using namespace std;
 namespace coup{
     class Player{
     protected:
-        Game game;
+        Game * p_game;
         string name;
         int Coins;
     public:
