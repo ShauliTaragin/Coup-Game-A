@@ -11,6 +11,7 @@ namespace coup{
     public:
         vector<string> Players;
         queue<string> Turns;
+        //need to add game vector which shows for each player what move he did
         Game();
         string turn();
         vector<string> players();

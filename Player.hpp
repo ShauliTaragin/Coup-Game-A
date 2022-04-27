@@ -17,8 +17,7 @@ namespace coup{
         //Now the 3 actions each player can execute in each turn
         Player& income();
         Player& foreign_aid();
-        Player& coup(Player);
-        virtual Player& block(Player);
+        virtual Player& coup(Player);
         virtual string role(){
             return Player::name;
         }

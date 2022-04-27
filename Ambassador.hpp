@@ -10,7 +10,7 @@ namespace coup{
     class Ambassador:public Player{
     public:
         Ambassador(Game & game, string player_name): Player(game,player_name){}
-        Player& block(Player);
+        void block(Player &);
         string role(){
             return "Ambassador";
         }

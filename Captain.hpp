@@ -9,7 +9,7 @@ namespace coup{
     class Captain:public Player{
     public:
         Captain(Game & game, string player_name): Player(game,player_name){}
-        Player& block(Player);
+        void block(Player &);
         string role(){
             return "Captain";
         }

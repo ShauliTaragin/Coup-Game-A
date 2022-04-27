@@ -7,8 +7,8 @@ using namespace std;
 namespace coup{
     class Contessa:public Player{
     public:
-        Contessa(Game & game, string player_name): Player(game,player_name){}
-        Player& block(Player);
+        Contessa(Game & game, string  player_name): Player(game,player_name){}
+        void block(Player &);
         string role(){
             return "Contessa";
         }
