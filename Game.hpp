@@ -11,11 +11,22 @@ namespace coup{
     public:
         vector<string> Players;
         queue<string> Turns;
+        vector<string> Bank_of_Actions;
+        /* income
+         * foreign_aid
+         * coup player_name
+         * tax
+         * block player_name
+         * transfer player1 player2
+         * steal player
+         *
+         */
         //need to add game vector which shows for each player what move he did
         Game();
         string turn();
         vector<string> players();
         string winner();
+        void remove_player(string player_name);
 
 
         //other methods we need for game:

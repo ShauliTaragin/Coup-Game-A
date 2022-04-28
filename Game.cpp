@@ -20,5 +20,14 @@ namespace coup{
         }
         return Players.front();
     }
+
+    void Game::remove_player(string player_name) {
+        for (long i = 0; i<this->Players.size(); i++){
+            if (Players.at(static_cast<unsigned long>(i)) == player_name){
+                Players.erase(Players.begin()+i);
+                //Turns.
+            }
+        }
+    }
 }
 

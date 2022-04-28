@@ -13,7 +13,7 @@ namespace coup{
         string role(){
             return "Duke";
         }
-        Player& tax();
+        void tax();
     };
 
 
