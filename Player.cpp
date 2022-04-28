@@ -16,6 +16,9 @@ namespace coup{
 
         //Now the 3 actions each player can execute in each turn
         Player &Player::income() {
+            if(p_game->Turns.front()!=this->name){
+                throw invalid_argument("Not your turn");
+            }
             //throw if not his turn
             this->Coins++;
             //possibly add to game array the action this player took
@@ -23,18 +26,26 @@ namespace coup{
             string player_which_played = p_game->Turns.front();
             p_game->Turns.pop();
             p_game->Turns.push(player_which_played);
+            p_game->Bank_of_Actions.push_back("income");
             return *this;
         }
         Player &Player::foreign_aid() {
             //throw if not his turn
+            if(p_game->Turns.front()!=this->name){
+                throw invalid_argument("Not your turn");
+            }
             this->Coins+=2;
             //changing the turn to the next player
             string player_which_played = p_game->Turns.front();
             p_game->Turns.pop();
             p_game->Turns.push(player_which_played);
+            p_game->Bank_of_Actions.push_back("foreign_aid");
             return *this;
         }
-        Player &Player::coup(Player) {
+        Player &Player::coup(Player player2) {
+            if(p_game->Turns.front()!=this->name){
+                throw invalid_argument("Not your turn");
+            }
             if(this->Coins < 7){
                 throw invalid_argument("Not enough coins to do this action");
             }

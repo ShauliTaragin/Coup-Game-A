@@ -7,11 +7,10 @@
 using namespace std;
 namespace coup{
     class Player{
-    protected:
+    public:
         Game * p_game;
         string name;
         int Coins;
-    public:
         Player(Game& game, string player_name);
 
         //Now the 3 actions each player can execute in each turn
@@ -21,10 +20,12 @@ namespace coup{
         virtual string role(){
             return Player::name;
         }
+        string get_name(){
+            return name;
+        }
         int coins(){
             return Player::Coins;
         }
-
     };
 
 
