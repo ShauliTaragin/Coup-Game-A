@@ -12,6 +12,7 @@ namespace coup{
             }
             current_game.Players.push_back(player_name);//adding player to game
             current_game.Turns.push(player_name);
+            current_game.Bank_of_Actions.push_back("entered");
         }
 
         //Now the 3 actions each player can execute in each turn
@@ -26,7 +27,7 @@ namespace coup{
             string player_which_played = p_game->Turns.front();
             p_game->Turns.pop();
             p_game->Turns.push(player_which_played);
-            p_game->Bank_of_Actions.push_back("income");
+            p_game->Bank_of_Actions.at(p_game->player_position(name)) = "income" ;
             return *this;
         }
         Player &Player::foreign_aid() {
@@ -39,10 +40,11 @@ namespace coup{
             string player_which_played = p_game->Turns.front();
             p_game->Turns.pop();
             p_game->Turns.push(player_which_played);
-            p_game->Bank_of_Actions.push_back("foreign_aid");
+            p_game->Bank_of_Actions.at(p_game->player_position(name)) = "foreign_aid" ;
             return *this;
         }
-        Player &Player::coup(Player player2) {
+
+        Player &Player::coup(Player& player2) {
             if(p_game->Turns.front()!=this->name){
                 throw invalid_argument("Not your turn");
             }
@@ -50,6 +52,7 @@ namespace coup{
                 throw invalid_argument("Not enough coins to do this action");
             }
             this->Coins-=7;
+            p_game->remove_player(player2.name);
             return *this;
         }
 

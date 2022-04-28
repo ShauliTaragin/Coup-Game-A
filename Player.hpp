@@ -11,12 +11,13 @@ namespace coup{
         Game * p_game;
         string name;
         int Coins;
+        Player * action_on_him;
         Player(Game& game, string player_name);
 
         //Now the 3 actions each player can execute in each turn
         Player& income();
         Player& foreign_aid();
-        virtual Player& coup(Player);
+        virtual Player& coup(Player&);
         virtual string role(){
             return Player::name;
         }

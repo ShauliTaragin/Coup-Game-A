@@ -25,9 +25,35 @@ namespace coup{
         for (long i = 0; i<this->Players.size(); i++){
             if (Players.at(static_cast<unsigned long>(i)) == player_name){
                 Players.erase(Players.begin()+i);
-                //Turns.
+                //not sure about deletion
+                Bank_of_Actions.erase(Players.begin()+i);
             }
         }
+        //now delete him from turns
+        queue<string> temp;
+        while(!Turns.empty()){
+            string curr = Turns.front();
+            Turns.pop();
+            if (curr!=player_name){
+                temp.push(curr);
+            }
+        }
+        while(!temp.empty()){
+            string curr = temp.front();
+            temp.pop();
+            Turns.push(curr);
+        }
+    }
+
+    size_t Game::player_position(string player_name) {
+        size_t position =0;
+        for (size_t i = 0; i < Players.size() ; ++i) {
+            if(Players.at(static_cast<unsigned long>(i)) == player_name){
+                position = i;
+                return position;
+            }
+        }
+        throw invalid_argument("this player is not in the game");
     }
 }
 

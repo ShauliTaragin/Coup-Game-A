@@ -27,7 +27,7 @@ namespace coup{
         vector<string> players();
         string winner();
         void remove_player(string player_name);
-
+        size_t player_position(string player_name);
 
         //other methods we need for game:
         //next() -> perhaps runned by a queue
