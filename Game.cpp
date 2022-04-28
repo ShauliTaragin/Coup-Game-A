@@ -22,13 +22,12 @@ namespace coup{
     }
 
     void Game::remove_player(string player_name) {
-        for (long i = 0; i<this->Players.size(); i++){
-            if (Players.at(static_cast<unsigned long>(i)) == player_name){
-                Players.erase(Players.begin()+i);
-                //not sure about deletion
-                Bank_of_Actions.erase(Players.begin()+i);
-            }
-        }
+        size_t i = player_position(player_name);
+        Players.erase(std::remove(Players.begin(), Players.end(), player_name), Players.end());
+
+//        this->Players.erase(Players.begin() + static_cast<long>(i));
+        //not sure about deletion
+        this->Bank_of_Actions.erase(Bank_of_Actions.begin() + static_cast<long>(i));
         //now delete him from turns
         queue<string> temp;
         while(!Turns.empty()){
